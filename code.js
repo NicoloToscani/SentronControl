@@ -1,5 +1,7 @@
 // Custom Web Control code
 
+let L1_L2 = document.getElementById('L1-L2');
+
 // Change measures tab
 function openMeasures(measuresTab) {
     var i;
@@ -9,3 +11,9 @@ function openMeasures(measuresTab) {
     }
     document.getElementById(measuresTab).style.display = "block";  
   }
+
+function updateMeasures() {
+            L1_L2.textContent = '398.66';
+        }
+
+
