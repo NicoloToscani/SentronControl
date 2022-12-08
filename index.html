@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en' style="height: 100%;">
+		
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+<script src='webcc.min.js'></script> <!-- Communication between CWC and WinCC Unified Runtime -->
+
+
+<!-- CWC body code -->
+<body>
+
+<div>
+  <h2>SENTRON PAC2200</h2>
+</div>
+
+<div >
+  <button onclick="openMeasures('U/I/Hz')">U/I/Hz</button>
+  <button onclick="openMeasures('Pf/Power')">Pf/Power</button>
+  <button onclick="openMeasures('Energy')">Energy</button>
+</div>
+
+<div id="U/I/Hz" class="w3-container measures">
+  <h2>U/I/Hz</h2>
+  <p>Measures tab 1</p>
+</div>
+
+<div id="Pf/Power" class="w3-container measures" style="display:none">
+  <h2>Pf/Power</h2>
+  <p>Measures tab 2</p> 
+</div>
+
+<div id="Energy" class="w3-container measures" style="display:none">
+  <h2>Energy</h2>
+  <p>Measures tab 3</p>
+</div>
+
+
+<script>
+
+// Change measures tab
+function openMeasures(cityName) {
+  var i;
+  var x = document.getElementsByClassName("measures");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(cityName).style.display = "block";  
+}
+</script>
+
+</body>
+</html>
