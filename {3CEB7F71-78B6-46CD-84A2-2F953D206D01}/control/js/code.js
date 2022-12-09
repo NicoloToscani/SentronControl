@@ -28,13 +28,13 @@ function updateMeasures() {
 function createTable(){
 
    // Variables definition
-  var L1_L2 = WebCC.Properties.L1_L2;
-  var L2_L3 = WebCC.Properties.L2_L3;
-  var L3_L1 = WebCC.Properties.L3_L1;
+  // var L1_L2 = WebCC.Properties.L1_L2;
+  // var L2_L3 = WebCC.Properties.L2_L3;
+  // var L3_L1 = WebCC.Properties.L3_L1;
 
    //define data array
     var tabledata = [
-       {id:1, name:"Oli Bob", progress:L1_L2, gender:"male", rating:1, col:"red", dob:"19/02/1984", car:1},
+       {id:1, name:"Oli Bob", progress:400.2, gender:"male", rating:1, col:"red", dob:"19/02/1984", car:1},
        {id:2, name:"Mary May", progress:1, gender:"female", rating:2, col:"blue", dob:"14/05/1982", car:true},
        {id:3, name:"Christine Lobowski", progress:42, gender:"female", rating:0, col:"green", dob:"22/05/1982", car:"true"},
        {id:4, name:"Brendon Philips", progress:100, gender:"male", rating:1, col:"orange", dob:"01/08/1980"},
@@ -51,14 +51,31 @@ function createTable(){
 }
 
 
+// Callback for WinCC data change
+function setProperty(data) {
+  switch (data.key) {
+    case "L1_L2":
+      if (data.value) {
+        
+        createTable();
+      }
+      
+      break;
+  }
+}
+
+
 ////////////////////////////////////////////
-// Initialize the custom control
+// Initialize the custom control (without a successful initialization, the CWC will remain empty. Make sure to include the webcc.min.js script!)
 WebCC.start(
   function ( result ) {
       if ( result ) {
 
         // Design 
         if (WebCC.isDesignMode) {
+
+          createTable();
+          console.log('design mode');
           
         }
         else {
@@ -68,7 +85,7 @@ WebCC.start(
           createTable();
           
           
-          // Subscribe for future value changes
+          // Subscribe for future value changes WinCC tags
           WebCC.onPropertyChanged.subscribe(setProperty);
         }
 
