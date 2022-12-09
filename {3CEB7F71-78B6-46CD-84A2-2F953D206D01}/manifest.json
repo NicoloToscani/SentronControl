@@ -1,0 +1,50 @@
+{
+	"mver": "1.0.0",
+	"control": {
+		"identity": {
+			"name": "SentronControl",
+			"version": "1.0",
+			"displayname": "SentronControl",
+			"icon": "./assets/PAC.ico",
+			"type": "guid://3CEB7F71-78B6-46CD-84A2-2F953D206D01",
+			"start": "./control/index.html"
+		},
+		"metadata": {
+			"author": "N.Toscani",
+			"keywords": [
+				"Sentron",
+				"EnergyMeter"
+			],
+			"description": "Display edge-sentron application tags value.",
+			"homepage": "https://github.com/SiemensIndustrialEdgeITA/edge-sentron"
+		},
+		"contracts": {
+			"api": {
+				"methods": {
+					
+				}, 
+				"events": {
+				
+				}, 
+				"properties": {
+					"L1_L2":{
+						"type": "number",
+						"default": 0.0
+					},
+					"L2_L3":{
+						"type": "number",
+						"default": 0.0
+					},
+					"L3_L1":{
+						"type": "number",
+						"default": 0.0
+					}
+
+				} 
+			}
+		},
+		"types": {
+
+		}
+	}
+}
